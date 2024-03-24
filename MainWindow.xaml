@@ -1,0 +1,18 @@
+﻿<Window x:Class="FormulasVisualizer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FormulasVisualizer"
+        xmlns:components="clr-namespace:FormulasVisualizer.Components"
+        xmlns:ScottPlot="clr-namespace:ScottPlot.WPF;assembly=ScottPlot.WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="537" Width="800">
+    <Canvas Height="537" Margin="0,0,0,-16">
+        <Label x:Name="_enterFormulaLabel" Content="Введите формулу" Canvas.Left="45" HorizontalAlignment="Left" VerticalAlignment="Center" Width="306" Height="51" FontFamily="Bahnschrift SemiBold" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="_formulaTextBox" Height="34" TextWrapping="Wrap" Canvas.Top="51" Width="376" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="18" Canvas.Left="10"/>
+        <Button x:Name="_parseFormulaButton" Content="Button" Height="22" Canvas.Left="113" Canvas.Top="90" Width="170"/>
+        <components:VariablesGrid x:Name="_variablesGrid" Height="527" Width="413" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <components:Plotter x:Name="_plotter" Height="320" Width="372" Canvas.Left="418" Canvas.Top="101" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+    </Canvas>
+</Window>
