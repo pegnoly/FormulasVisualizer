@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 
 namespace FormulasVisualizer.Source {
 
@@ -8,6 +10,7 @@ namespace FormulasVisualizer.Source {
 	 * Производит два массива значений для отображения на графике.
 	 */
 	public class FormulaCalculator {
+		private Queue<Operation> _operations = new Queue<Operation>();
 		private KeyValuePair<string, List<double>> _mainVariable;
 		private Dictionary<string, double>? _variables = new Dictionary<string, double>();
 
@@ -15,7 +18,12 @@ namespace FormulasVisualizer.Source {
 		public delegate void Calculated(double[] domain, double[] codomain);
 		public event Calculated? OnCalculated;
 
-		public FormulaCalculator() { }
+		public FormulaCalculator() {
+		}
+
+		public void AddOperations(Queue<Operation> operations) {
+			_operations = operations;
+		}
 
 		// !TODO - добавить перерасчет, когда меняется основная переменная.
 		public void AssignMainVariable(string name, List<double> values) { 
@@ -29,20 +37,45 @@ namespace FormulasVisualizer.Source {
 			else {
 				_variables.Add(name, value);
 			}
-			Calculate();
+			//Calculate();
 		}
 		
 		// !TODO - реализовать расчет по конкретной формуле вместо тестового суммирования.
-		private void Calculate() {
-			List<double> results = new List<double>();
-			foreach(double variable in  _mainVariable.Value) {
-				double currentResult = variable;
-				foreach(KeyValuePair<string, double> element in _variables!) {
-					currentResult += element.Value;
-				}
-				results.Add(currentResult);
-			}
-			OnCalculated!(_mainVariable.Value.ToArray(), results.ToArray());
+		public void Calculate() {
+			Dictionary<double, double> results = new Dictionary<double, double>();
+			foreach(float mainValue in _mainVariable.Value) {
+                foreach (Operation operation in _operations) {
+                    double val1 = operation.eval1 == _mainVariable.Key ? mainValue : _variables![operation.eval1];
+                    double val2 = operation.eval2 == _mainVariable.Key ? mainValue : _variables![operation.eval2];
+                    double result = 0.0;
+                    switch (operation.op) {
+                        case '*':
+                            result = val1 * val2;
+                            break;
+                        case '/':
+                            result = val1 / val2;
+                            break;
+                        case '+':
+                            result = val1 + val2;
+                            break;
+                        case '-':
+                            result = val1 - val2;
+                            break;
+                        default:
+                            break;
+                    }
+                    if (_variables!.ContainsKey(operation.outval)) {
+                        _variables[operation.outval] = result;
+                    }
+                    else {
+                        _variables.Add(operation.outval, result);
+                    }
+                    operation.Print();
+                    Trace.WriteLine($"result {result}");
+					results[mainValue] = result;
+                }
+            }
+			OnCalculated!(results.Keys.ToArray(), results.Values.ToArray());
 		}
 	}
 }
