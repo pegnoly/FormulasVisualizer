@@ -4,12 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FormulasVisualizer.Components"
-             mc:Ignorable="d" Height="143" Width="137">
+             mc:Ignorable="d" Height="20" Width="365">
     <Grid>
-        <ComboBox x:Name="_valueSelector" HorizontalAlignment="Center" VerticalAlignment="Top" Width="70" Height="25" Margin="0,84,0,0"/>
-        <TextBox x:Name="_valueAdder" HorizontalAlignment="Left" Margin="10,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="118" Height="30"/>
-        <Button x:Name="_addValueButton" Content="Button" HorizontalAlignment="Center" Margin="0,59,0,0" VerticalAlignment="Top" Width="58" Click="AddPossibleValues"/>
-        <Label x:Name="_variableNameLabel" Content="Label" HorizontalAlignment="Center" Height="29" VerticalAlignment="Top" Width="99" Margin="0,-5,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <Button x:Name="_setSelectedButton" Content="Button" HorizontalAlignment="Center" Margin="0,114,0,0" VerticalAlignment="Top" Width="58" Click="SelectVariable"/>
+        <ComboBox x:Name="_valueSelector" HorizontalAlignment="Left" VerticalAlignment="Center" Width="70" Height="15" Margin="285,0,0,0"/>
+        <TextBox x:Name="_valueAdder" HorizontalAlignment="Left" Margin="86,1,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="99" Height="18" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.547,-1.203"/>
+        <Button x:Name="_addValueButton" Content="Добавить значения&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Center" Width="86" Click="AddPossibleValues" Height="14" Margin="190,0,0,0" FontSize="9" FontFamily="Bahnschrift"/>
+        <Label x:Name="_variableNameLabel" Content="Label" HorizontalAlignment="Left" Height="19" VerticalAlignment="Top" Width="86" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="9" FontFamily="Bahnschrift"/>
     </Grid>
 </UserControl>

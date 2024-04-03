@@ -7,12 +7,13 @@
         xmlns:components="clr-namespace:FormulasVisualizer.Components"
         xmlns:ScottPlot="clr-namespace:ScottPlot.WPF;assembly=ScottPlot.WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="537" Width="800">
-    <Canvas Height="537" Margin="0,0,0,-16">
-        <Label x:Name="_enterFormulaLabel" Content="Введите формулу" Canvas.Left="45" HorizontalAlignment="Left" VerticalAlignment="Center" Width="306" Height="51" FontFamily="Bahnschrift SemiBold" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="_formulaTextBox" Height="34" TextWrapping="Wrap" Canvas.Top="51" Width="376" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="18" Canvas.Left="10"/>
+        Title="MainWindow" Height="512" Width="1018">
+    <Canvas Margin="0,0,0,-6">
+        <Label x:Name="_enterFormulaLabel" Content="Введите формулу" Canvas.Left="80" HorizontalAlignment="Left" VerticalAlignment="Center" Width="306" Height="51" FontFamily="Bahnschrift SemiBold" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="_formulaTextBox" Height="34" TextWrapping="Wrap" Canvas.Top="51" Width="376" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="18" Canvas.Left="45"/>
         <Button x:Name="_parseFormulaButton" Content="Button" Height="22" Canvas.Left="113" Canvas.Top="90" Width="170"/>
-        <components:VariablesGrid x:Name="_variablesGrid" Height="527" Width="413" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <components:Plotter x:Name="_plotter" Height="320" Width="372" Canvas.Left="418" Canvas.Top="101" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <components:Plotter x:Name="_plotter" Height="334" Width="421" Canvas.Left="587" Canvas.Top="94" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <components:VariablesGrid x:Name="_variablesGrid" Canvas.Top="132" Height="296" Width="572" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="10"/>
+        <Button x:Name="_calculateButton" Content="Button" Canvas.Left="164" Canvas.Top="433" HorizontalAlignment="Left" VerticalAlignment="Center" Width="236" Height="33"/>
     </Canvas>
 </Window>

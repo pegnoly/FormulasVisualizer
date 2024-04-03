@@ -27,7 +27,6 @@ namespace FormulasVisualizer.Components {
             _name = variableName;
             _variableNameLabel.Content = variableName;
             _valueSelector.ItemsSource = _values;
-            _setSelectedButton.Click += SelectVariable;
             _valueSelector.SelectionChanged += ChangeValue;
         }
 

@@ -6,7 +6,13 @@
              xmlns:local="clr-namespace:FormulasVisualizer.Components"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Name="_grid">
-            
+    <Grid Margin="0,0,0,20">
+        <Viewbox Stretch="Fill">
+            <Canvas Width="490" Height="215">
+                <Label Content="Выберите основную переменную" Canvas.Top="10" Canvas.Left="49" Width="191" Height="26" HorizontalAlignment="Left" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Bahnschrift" FontSize="11"></Label>
+                <ComboBox x:Name="_mainVariableSelector" Canvas.Top="9" Canvas.Left="245" HorizontalAlignment="Left" VerticalAlignment="Top" Height="28" Width="168"/>
+                <StackPanel x:Name="_variablesPanel" Height="171" Canvas.Top="44" Width="490" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Canvas>
+        </Viewbox>
     </Grid>
 </UserControl>

@@ -18,8 +18,11 @@ namespace FormulasVisualizer.Components {
         public delegate void VariableValueChanged(string name, double value);
         public event VariableValueChanged? OnVariableValueChanged;
 
+        private ObservableCollection<string> _mainVariableSelectorVariants = new ObservableCollection<string>();
+
         public VariablesGrid() {
             InitializeComponent();
+            _mainVariableSelector.ItemsSource = _mainVariableSelectorVariants;
         }
         
         private void SelectMainVariable(string variableName, ObservableCollection<string> values) {
@@ -38,18 +41,13 @@ namespace FormulasVisualizer.Components {
         } 
 
         public void Fill(string[] elements) {
-            _grid.RowDefinitions.Add(new RowDefinition());
-            int currentColumn = -1;
-            foreach (string element in elements) { 
-                currentColumn++;
-                _grid.ColumnDefinitions.Add(new ColumnDefinition());
+            foreach (string element in elements) {
+                _mainVariableSelectorVariants.Add(element);
                 FormulaVariableControl formulaVariableControl = new FormulaVariableControl(element);
                 formulaVariableControl.OnSelected += SelectMainVariable;
                 formulaVariableControl.OnChanged += SetVariableValue;
                 _variableControls.Add(formulaVariableControl);
-                Grid.SetColumn(formulaVariableControl, currentColumn);
-                Grid.SetRow(formulaVariableControl, 0);
-                _grid.Children.Add(formulaVariableControl);
+                _variablesPanel.Children.Add(formulaVariableControl);
             }
         }
     }
