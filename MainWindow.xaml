@@ -11,9 +11,9 @@
     <Canvas Margin="0,0,0,-6">
         <Label x:Name="_enterFormulaLabel" Content="Введите формулу" Canvas.Left="80" HorizontalAlignment="Left" VerticalAlignment="Center" Width="306" Height="51" FontFamily="Bahnschrift SemiBold" FontSize="22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <TextBox x:Name="_formulaTextBox" Height="34" TextWrapping="Wrap" Canvas.Top="51" Width="376" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" FontSize="18" Canvas.Left="45"/>
-        <Button x:Name="_parseFormulaButton" Content="Button" Height="22" Canvas.Left="113" Canvas.Top="90" Width="170"/>
         <components:Plotter x:Name="_plotter" Height="334" Width="421" Canvas.Left="587" Canvas.Top="94" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <components:VariablesGrid x:Name="_variablesGrid" Canvas.Top="132" Height="296" Width="572" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="10"/>
-        <Button x:Name="_calculateButton" Content="Button" Canvas.Left="164" Canvas.Top="433" HorizontalAlignment="Left" VerticalAlignment="Center" Width="236" Height="33"/>
+        <components:VariablesPanel x:Name="_variablesPanel" Canvas.Top="132" Height="296" Width="572" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="10"/>
+        <Button x:Name="_parseFormulaButton" Content="Разобрать формулу" Height="22" Canvas.Left="113" Canvas.Top="90" Width="170"/>
+        <Button x:Name="_calculateButton" Content="Построить график" Canvas.Left="164" Canvas.Top="433" HorizontalAlignment="Left" VerticalAlignment="Center" Width="236" Height="33"/>
     </Canvas>
 </Window>
